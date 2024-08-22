@@ -347,5 +347,65 @@ namespace Mens_Beauty_Center
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UpdateService", serviceIdParameter, serviceNameParameter, priceParameter);
         }
+    
+        public virtual ObjectResult<PS_GetCustomerService_Result> PS_GetCustomerService(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PS_GetCustomerService_Result>("PS_GetCustomerService", fromDateParameter, toDateParameter);
+        }
+    
+        public virtual ObjectResult<PS_GetCustomerServiceEmployee_Result> PS_GetCustomerServiceEmployee(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, string nationalID)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            var nationalIDParameter = nationalID != null ?
+                new ObjectParameter("NationalID", nationalID) :
+                new ObjectParameter("NationalID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PS_GetCustomerServiceEmployee_Result>("PS_GetCustomerServiceEmployee", fromDateParameter, toDateParameter, nationalIDParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetCustomerPackage_Result> SP_GetCustomerPackage(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetCustomerPackage_Result>("SP_GetCustomerPackage", fromDateParameter, toDateParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetCustomerPackageEmployee_Result> SP_GetCustomerPackageEmployee(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, string nationalID)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            var nationalIDParameter = nationalID != null ?
+                new ObjectParameter("NationalID", nationalID) :
+                new ObjectParameter("NationalID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetCustomerPackageEmployee_Result>("SP_GetCustomerPackageEmployee", fromDateParameter, toDateParameter, nationalIDParameter);
+        }
     }
 }
