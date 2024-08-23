@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,18 +13,91 @@ namespace Mens_Beauty_Center
 {
     public partial class LoginForm : Form
     {
+     
+
+            public static int AttendanceIDNow { get; set; }
+
         public LoginForm()
         {
             InitializeComponent();
         }
-        // تاكيد غلق الصفحه
+        #region ClosePage
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("هل انت متاكد من غلق هذه الصفحه؟", "Confirm Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+
+        }
+
+        #endregion
+
+        private (bool isValid, string employeeID) ValidateUser(string username, string password)
+        {
+            using (var context = new Mens_Beauty_Center_DBEntities())
             {
-                e.Cancel = true;
+                var account = context.Accounts
+                    .Where(a => a.UserName == username && a.UserPassword == password)
+                    .Select(a => new { a.EmployeeID })
+                    .FirstOrDefault();
+
+                if (account != null)
+                {
+                    return (true, account.EmployeeID);
+                }
+                else
+                {
+                    return (false, null);
+                }
             }
         }
+
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            string username = UserName.Text;
+            string password = Password.Text;
+            var (isValid, employeeID) = ValidateUser(username, password);
+
+            if (isValid)
+            {
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    #region Insert AttendceID
+                    using (var context = new Mens_Beauty_Center_DBEntities())
+                    {
+                        context.SP_InsertArrivalTime(employeeID);
+                        var currentDate = DateTime.Now.Date;
+                        var NationalID = context.Employees.Where(emp => emp.NationalID == employeeID)
+                                                          .Select(emp => emp.NationalID)
+                                                          .FirstOrDefault();
+
+                        AttendanceIDNow = context.Attendances
+                            .Where(attend => (attend.NationalID == NationalID) &&
+                                             (DbFunctions.TruncateTime(attend.ArrivalTime) == currentDate))
+                            .Select(attend => attend.AttendanceID)
+                            .FirstOrDefault();
+                    }
+                    #endregion
+                    ManagerCategories_frm Managercategories = new ManagerCategories_frm();
+                    Managercategories.FormClosed += (s, args) => this.Close(); 
+                    MessageBox.Show("تم الدخول ككاشير بنجاح");
+                    //MessageBox.Show($"{AttendanceIDNow}");
+                    Managercategories.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    //MessageBox.Show("Owner");
+                    Categories categories = new Categories();
+                    categories.FormClosed += (s, args) => this.Close(); // Close Login form when Categories is closed
+                    MessageBox.Show("تم الدخول كمالك بنجاح");
+                    categories.Show();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+        }
+
     }
 }

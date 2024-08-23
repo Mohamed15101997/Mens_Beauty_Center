@@ -31,10 +31,10 @@ namespace Mens_Beauty_Center
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UserName = new System.Windows.Forms.TextBox();
+            this.LoginBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -48,27 +48,28 @@ namespace Mens_Beauty_Center
             this.label1.TabIndex = 1;
             this.label1.Text = "تسجيل الدخول";
             // 
-            // textBox1
+            // UserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 27);
-            this.textBox1.TabIndex = 2;
+            this.UserName.Location = new System.Drawing.Point(81, 192);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(212, 27);
+            this.UserName.TabIndex = 2;
             // 
-            // button1
+            // LoginBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(134, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 38);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "تسجيل الدخول";
-            this.button1.UseVisualStyleBackColor = false;
+            this.LoginBtn.BackColor = System.Drawing.Color.Green;
+            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginBtn.FlatAppearance.BorderSize = 0;
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LoginBtn.Location = new System.Drawing.Point(134, 308);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(127, 38);
+            this.LoginBtn.TabIndex = 3;
+            this.LoginBtn.Text = "تسجيل الدخول";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // label2
             // 
@@ -79,13 +80,13 @@ namespace Mens_Beauty_Center
             this.label2.TabIndex = 4;
             this.label2.Text = ":اسم المستخدم";
             // 
-            // textBox2
+            // Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 257);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(212, 27);
-            this.textBox2.TabIndex = 2;
+            this.Password.Location = new System.Drawing.Point(81, 257);
+            this.Password.Name = "Password";
+            this.Password.PasswordChar = '*';
+            this.Password.Size = new System.Drawing.Size(212, 27);
+            this.Password.TabIndex = 2;
             // 
             // label3
             // 
@@ -103,9 +104,9 @@ namespace Mens_Beauty_Center
             this.ClientSize = new System.Drawing.Size(405, 422);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LoginBtn);
+            this.Controls.Add(this.Password);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -115,16 +116,15 @@ namespace Mens_Beauty_Center
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.FormClosing += new FormClosingEventHandler(LoginForm_FormClosing);
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox UserName;
+        private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label3;
     }
 }
