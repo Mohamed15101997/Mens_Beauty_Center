@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,18 +57,12 @@ namespace Mens_Beauty_Center
 
         private void enable_txts()
         {
-            cb_month.Enabled = true;
             txt_percent.Enabled = true;
-            txt_total.Enabled = true;
-            cb_emp.Enabled = true;
         }
 
         private void clear_txts()
         {
-            cb_month.SelectedIndex = 0;
             txt_percent.Text = "";
-            txt_total.Text = "";
-            cb_emp.SelectedIndex = 0;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -77,17 +72,17 @@ namespace Mens_Beauty_Center
                 MessageBox.Show("النسبة المدخلة لا يمكن أن تكون أكثر من 10%", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            // إنشاء كائن جديد من Evaluation
-            ev = new Evaluation
-            {
-                Month = cb_month.SelectedItem.ToString(),
-                TotalAmountOfMonth = decimal.Parse(txt_total.Text),
-                ProfitPercentage = decimal.Parse(txt_percent.Text),
-                NationalID = cb_emp.SelectedValue.ToString()
-            };
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "MMMM";
 
-            // إضافة التقييم الجديد إلى قاعدة البيانات وحفظ التغييرات
-            my_context.Evaluations.Add(ev);
+            // استخراج رقم الشهر فقط
+            int selectedMonthNumber = dateTimePicker1.Value.Month;
+
+            // تحويل رقم الشهر إلى نص بصيغة مكونة من خانتين
+            string selectedMonthString = selectedMonthNumber.ToString("D2");
+
+            my_context.SP_InsertEmployeeEvaluationWithPackages(selectedMonthString, decimal.Parse(txt_percent.Text));
+            
             my_context.SaveChanges();
 
             MessageBox.Show("تم إضافة التقييم بنجاح!", "معلومات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -112,21 +107,6 @@ namespace Mens_Beauty_Center
         {
             fillDGV();
 
-            // تعبئة ComboBox بأسماء الأشهر باللغة العربية
-            cb_month.Items.AddRange(new string[]
-            {
-                "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
-                "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
-            });
-
-            // تعيين أول عنصر كقيمة افتراضية
-            cb_month.SelectedIndex = 0;
-
-            // تعبئة ComboBox الخاصة بالعاملين
-            var employees = my_context.Employees.ToList();
-            cb_emp.DataSource = employees;
-            cb_emp.DisplayMember = "FirstName";
-            cb_emp.ValueMember = "NationalID";
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -141,11 +121,8 @@ namespace Mens_Beauty_Center
                 string nationalID = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
 
                 // تعبئة الحقول بناءً على القيم المستخرجة
-                cb_month.SelectedItem = month;
-                txt_total.Text = totalAmount;
+                
                 txt_percent.Text = profitPercentage;
-                // تعيين العامل المناسب في ComboBox باستخدام NationalID
-                cb_emp.SelectedValue = nationalID;
             }
         }
 
@@ -168,11 +145,7 @@ namespace Mens_Beauty_Center
                 if (evaluation != null)
                 {
                     // تحديث القيم بالبيانات الجديدة من الحقول النصية
-                    evaluation.TotalAmountOfMonth = decimal.Parse(txt_total.Text);
                     evaluation.ProfitPercentage = decimal.Parse(txt_percent.Text);
-                    evaluation.Month = cb_month.SelectedItem.ToString();
-                    evaluation.NationalID = cb_emp.SelectedValue.ToString(); // القيمة المختارة من ComboBox
-
                     // حفظ التغييرات في قاعدة البيانات
                     my_context.SaveChanges();
 
@@ -192,8 +165,6 @@ namespace Mens_Beauty_Center
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             enable_txts();
-            cb_month.Enabled = false;
-            cb_emp.Enabled = false;
             btn_save.Enabled = true;
         }
 
