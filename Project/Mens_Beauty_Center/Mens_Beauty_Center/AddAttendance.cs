@@ -96,27 +96,34 @@ namespace Mens_Beauty_Center
 
         private void ExpenceBtn_Click(object sender, EventArgs e)
         {
-            string NationID = ExpenceCB.SelectedValue.ToString();
-            if(NationID == null)
-                MessageBox.Show("يجب عليك اختيار موظف اولا", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            int attendanceID = context.Attendances.Where(attend => (attend.NationalID == NationID) && (DbFunctions.TruncateTime(attend.ArrivalTime) == currentDate)).Select(attend => attend.AttendanceID).FirstOrDefault();
-            decimal fixedSalary = context.Employees.Where(emp => emp.NationalID == NationID).Select(emp => emp.FixedSalary).FirstOrDefault();
-            var currentExpenceMoney = context.Attendances.Where(attend => attend.AttendanceID == attendanceID).Select(attend => attend.ExpenseMoney).FirstOrDefault();
-            var remainedMoney = fixedSalary - currentExpenceMoney;
-            var query = context.Attendances.SingleOrDefault(attend => attend.AttendanceID == attendanceID);
-            if (ExpenceTxt.Text == "")
-                MessageBox.Show("لا يمكن ترك الحقل فارغ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (remainedMoney >= decimal.Parse(ExpenceTxt.Text)) 
+            if (ExpenceCB.SelectedItem != null)
             {
-                query.ExpenseMoney += decimal.Parse(ExpenceTxt.Text);
-                context.SaveChanges();
-                var remainedMoneyUpdate = remainedMoney - decimal.Parse(ExpenceTxt.Text);
-                MessageBox.Show($"تمت اضافة سحب المصروفات وباقي لديك لسحبه {remainedMoneyUpdate} ", "اضافة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ExpenceTxt.Text = "";
+
+                string NationID = ExpenceCB.SelectedValue.ToString();
+                int attendanceID = context.Attendances.Where(attend => (attend.NationalID == NationID) && (DbFunctions.TruncateTime(attend.ArrivalTime) == currentDate)).Select(attend => attend.AttendanceID).FirstOrDefault();
+                decimal fixedSalary = context.Employees.Where(emp => emp.NationalID == NationID).Select(emp => emp.FixedSalary).FirstOrDefault();
+                var currentExpenceMoney = context.Attendances.Where(attend => attend.AttendanceID == attendanceID).Select(attend => attend.ExpenseMoney).FirstOrDefault();
+                var remainedMoney = fixedSalary - currentExpenceMoney;
+                var query = context.Attendances.SingleOrDefault(attend => attend.AttendanceID == attendanceID);
+                if (ExpenceTxt.Text == "")
+                    MessageBox.Show("لا يمكن ترك الحقل فارغ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (remainedMoney >= decimal.Parse(ExpenceTxt.Text))
+                {
+                    query.ExpenseMoney += decimal.Parse(ExpenceTxt.Text);
+                    context.SaveChanges();
+                    var remainedMoneyUpdate = remainedMoney - decimal.Parse(ExpenceTxt.Text);
+                    MessageBox.Show($"تمت اضافة سحب المصروفات وباقي لديك لسحبه {remainedMoneyUpdate} ", "اضافة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ExpenceTxt.Text = "";
+                }
+                else
+                    MessageBox.Show("لا يمكن سحب اكتر من اليومية الخاصة بك ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            else 
-                MessageBox.Show("لا يمكن سحب اكتر من اليومية الخاصة بك ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+            else
+            {
+                MessageBox.Show("يجب عليك اختيار موظف اولا", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

@@ -22,14 +22,16 @@ namespace Mens_Beauty_Center
         private void lbl_Logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("هل انت متاكد من تسجيل الخروج", "Closing", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
             if (result == DialogResult.No)
             {
                 return;
             }
             else if (result == DialogResult.Yes)
             {
-                //my_context.SP_UpdateLeavingTime(/*AttendanceID */);/* من فارس على حسب ما يعرفه*/
-                Application.Exit(); 
+                my_context.SP_UpdateLeavingTime(LoginForm.AttendanceIDNow);/* من فارس على حسب ما يعرفه*/
+
+                Application.Exit();
             }
         }
 
@@ -43,10 +45,9 @@ namespace Mens_Beauty_Center
             }
             else if (result == DialogResult.Yes)
             {
-                //my_context.SP_UpdateLeavingTime(/*AttendanceID */);/* من فارس على حسب ما يعرفه*/
+                my_context.SP_UpdateLeavingTime(LoginForm.AttendanceIDNow);/* من فارس على حسب ما يعرفه*/
 
-                // ضع هنا كود تسجيل الخروج.
-                Application.Exit(); // أو أية عملية تريد تنفيذها عند تسجيل الخروج.
+                Application.Exit();
             }
         }
 

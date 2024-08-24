@@ -201,6 +201,7 @@ namespace Mens_Beauty_Center
             this.Controls.Add(this.lbl_AddCustomer);
             this.Controls.Add(this.lbl_AddVip);
             this.Controls.Add(this.lbl_attend);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManagerCategories_frm";
             this.Text = "الصفحة الرئيسية";

@@ -146,7 +146,9 @@ namespace Mens_Beauty_Center
             this.Controls.Add(this.lbl_AddService);
             this.Controls.Add(this.txt_phone);
             this.Controls.Add(this.txt_name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddCoustomer_frm";
             this.Text = "إضافة عميل";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCoustomer_frm_FormClosing);
