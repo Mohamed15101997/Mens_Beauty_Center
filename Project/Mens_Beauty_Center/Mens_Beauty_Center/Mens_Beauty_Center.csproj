@@ -58,6 +58,24 @@
     <Compile Include="Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAccount.Designer.cs">
+      <DependentUpon>AddAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAttendance.Designer.cs">
+      <DependentUpon>AddAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCoustomer_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCoustomer_frm.Designer.cs">
+      <DependentUpon>AddCoustomer_frm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllCustomers_frm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +130,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagerCategories_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerCategories_frm.Designer.cs">
+      <DependentUpon>ManagerCategories_frm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +183,18 @@
     <Compile Include="Service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceShow.Designer.cs">
+      <DependentUpon>ServiceShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServicesTaken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicesTaken.Designer.cs">
+      <DependentUpon>ServicesTaken.cs</DependentUpon>
+    </Compile>
     <Compile Include="SP_EmployeeReport_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -176,6 +212,12 @@
     </Compile>
     <Compile Include="SP_GetCustomerServicesByPhoneNumber_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThePriceOfTheServicesToTheCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThePriceOfTheServicesToTheCustomer.Designer.cs">
+      <DependentUpon>ThePriceOfTheServicesToTheCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="V_AllCustomers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -195,6 +237,15 @@
     <Compile Include="V_Service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAccount.resx">
+      <DependentUpon>AddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAttendance.resx">
+      <DependentUpon>AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCoustomer_frm.resx">
+      <DependentUpon>AddCoustomer_frm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AllCustomers_frm.resx">
       <DependentUpon>AllCustomers_frm.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +261,12 @@
     <EmbeddedResource Include="Evaluation_frm.resx">
       <DependentUpon>Evaluation_frm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerCategories_frm.resx">
+      <DependentUpon>ManagerCategories_frm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageTotal.resx">
       <DependentUpon>PackageTotal.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,7 +278,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ServiceShow.resx">
+      <DependentUpon>ServiceShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServicesTaken.resx">
+      <DependentUpon>ServicesTaken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThePriceOfTheServicesToTheCustomer.resx">
+      <DependentUpon>ThePriceOfTheServicesToTheCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -244,6 +311,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\616-6167465_display-page-posting-blue-edit-icon-transparent-background.png" />
+    <Content Include="Images\add_user.ico" />
+    <Content Include="Images\computer-icons-checklist-shopping-list-png-favpng-VYASXax2GfmRJ29YWj1ZAXAPY.jpg" />
+    <Content Include="Images\hakim.JPG" />
+    <Content Include="Images\Home.ico" />
+    <Content Include="Images\logout.JPG" />
+    <Content Include="Images\users.ico" />
+    <Content Include="Images\users5.png" />
+    <Content Include="Images\user_add.ico" />
+    <Content Include="Images\vip.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

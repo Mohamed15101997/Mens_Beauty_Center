@@ -33,19 +33,19 @@ namespace Mens_Beauty_Center
             this.lbl_attend = new System.Windows.Forms.Label();
             this.lbl_AddVip = new System.Windows.Forms.Label();
             this.lbl_AddCustomer = new System.Windows.Forms.Label();
-            this.PB_AddCustomer = new System.Windows.Forms.PictureBox();
-            this.PB_attend = new System.Windows.Forms.PictureBox();
-            this.PB_AddVip = new System.Windows.Forms.PictureBox();
-            this.PB_AddService = new System.Windows.Forms.PictureBox();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.lbl_Logout = new System.Windows.Forms.Label();
             this.lbl_AddService = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_attend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddVip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddService)).BeginInit();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.PB_AddService = new System.Windows.Forms.PictureBox();
+            this.PB_AddVip = new System.Windows.Forms.PictureBox();
+            this.PB_attend = new System.Windows.Forms.PictureBox();
+            this.PB_AddCustomer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddVip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_attend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_attend
@@ -85,68 +85,6 @@ namespace Mens_Beauty_Center
             this.lbl_AddCustomer.Text = "إضافة عميل";
             this.lbl_AddCustomer.Click += new System.EventHandler(this.lbl_AddCustomer_Click);
             // 
-            // PB_AddCustomer
-            // 
-            this.PB_AddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_AddCustomer.Image = ((System.Drawing.Image)(resources.GetObject("PB_AddCustomer.Image")));
-            this.PB_AddCustomer.Location = new System.Drawing.Point(721, 136);
-            this.PB_AddCustomer.Margin = new System.Windows.Forms.Padding(2);
-            this.PB_AddCustomer.Name = "PB_AddCustomer";
-            this.PB_AddCustomer.Size = new System.Drawing.Size(108, 81);
-            this.PB_AddCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_AddCustomer.TabIndex = 8;
-            this.PB_AddCustomer.TabStop = false;
-            this.PB_AddCustomer.Click += new System.EventHandler(this.PB_AddCustomer_Click);
-            // 
-            // PB_attend
-            // 
-            this.PB_attend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_attend.Image = ((System.Drawing.Image)(resources.GetObject("PB_attend.Image")));
-            this.PB_attend.Location = new System.Drawing.Point(49, 136);
-            this.PB_attend.Margin = new System.Windows.Forms.Padding(2);
-            this.PB_attend.Name = "PB_attend";
-            this.PB_attend.Size = new System.Drawing.Size(108, 81);
-            this.PB_attend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_attend.TabIndex = 9;
-            this.PB_attend.TabStop = false;
-            // 
-            // PB_AddVip
-            // 
-            this.PB_AddVip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_AddVip.Image = ((System.Drawing.Image)(resources.GetObject("PB_AddVip.Image")));
-            this.PB_AddVip.Location = new System.Drawing.Point(269, 136);
-            this.PB_AddVip.Margin = new System.Windows.Forms.Padding(2);
-            this.PB_AddVip.Name = "PB_AddVip";
-            this.PB_AddVip.Size = new System.Drawing.Size(108, 81);
-            this.PB_AddVip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_AddVip.TabIndex = 10;
-            this.PB_AddVip.TabStop = false;
-            // 
-            // PB_AddService
-            // 
-            this.PB_AddService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_AddService.Image = ((System.Drawing.Image)(resources.GetObject("PB_AddService.Image")));
-            this.PB_AddService.Location = new System.Drawing.Point(499, 136);
-            this.PB_AddService.Margin = new System.Windows.Forms.Padding(2);
-            this.PB_AddService.Name = "PB_AddService";
-            this.PB_AddService.Size = new System.Drawing.Size(108, 81);
-            this.PB_AddService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_AddService.TabIndex = 11;
-            this.PB_AddService.TabStop = false;
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Logout.BackgroundImage")));
-            this.btn_Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Logout.Location = new System.Drawing.Point(751, 12);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(91, 57);
-            this.btn_Logout.TabIndex = 12;
-            this.btn_Logout.UseVisualStyleBackColor = true;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click_1);
-            // 
             // lbl_Logout
             // 
             this.lbl_Logout.AutoSize = true;
@@ -184,6 +122,68 @@ namespace Mens_Beauty_Center
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackgroundImage = global::Mens_Beauty_Center.Properties.Resources.logout;
+            this.btn_Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Logout.Location = new System.Drawing.Point(751, 12);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(91, 57);
+            this.btn_Logout.TabIndex = 12;
+            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click_1);
+            // 
+            // PB_AddService
+            // 
+            this.PB_AddService.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_AddService.Image = global::Mens_Beauty_Center.Properties.Resources._616_6167465_display_page_posting_blue_edit_icon_transparent_background;
+            this.PB_AddService.Location = new System.Drawing.Point(499, 136);
+            this.PB_AddService.Margin = new System.Windows.Forms.Padding(2);
+            this.PB_AddService.Name = "PB_AddService";
+            this.PB_AddService.Size = new System.Drawing.Size(108, 81);
+            this.PB_AddService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_AddService.TabIndex = 11;
+            this.PB_AddService.TabStop = false;
+            // 
+            // PB_AddVip
+            // 
+            this.PB_AddVip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_AddVip.Image = global::Mens_Beauty_Center.Properties.Resources.vip;
+            this.PB_AddVip.Location = new System.Drawing.Point(269, 136);
+            this.PB_AddVip.Margin = new System.Windows.Forms.Padding(2);
+            this.PB_AddVip.Name = "PB_AddVip";
+            this.PB_AddVip.Size = new System.Drawing.Size(108, 81);
+            this.PB_AddVip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_AddVip.TabIndex = 10;
+            this.PB_AddVip.TabStop = false;
+            // 
+            // PB_attend
+            // 
+            this.PB_attend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_attend.Image = global::Mens_Beauty_Center.Properties.Resources.computer_icons_checklist_shopping_list_png_favpng_VYASXax2GfmRJ29YWj1ZAXAPY;
+            this.PB_attend.Location = new System.Drawing.Point(49, 136);
+            this.PB_attend.Margin = new System.Windows.Forms.Padding(2);
+            this.PB_attend.Name = "PB_attend";
+            this.PB_attend.Size = new System.Drawing.Size(108, 81);
+            this.PB_attend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_attend.TabIndex = 9;
+            this.PB_attend.TabStop = false;
+            // 
+            // PB_AddCustomer
+            // 
+            this.PB_AddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_AddCustomer.Image = global::Mens_Beauty_Center.Properties.Resources.users5;
+            this.PB_AddCustomer.Location = new System.Drawing.Point(721, 136);
+            this.PB_AddCustomer.Margin = new System.Windows.Forms.Padding(2);
+            this.PB_AddCustomer.Name = "PB_AddCustomer";
+            this.PB_AddCustomer.Size = new System.Drawing.Size(108, 81);
+            this.PB_AddCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_AddCustomer.TabIndex = 8;
+            this.PB_AddCustomer.TabStop = false;
+            this.PB_AddCustomer.Click += new System.EventHandler(this.PB_AddCustomer_Click);
+            // 
             // ManagerCategories_frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,11 +205,11 @@ namespace Mens_Beauty_Center
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManagerCategories_frm";
             this.Text = "الصفحة الرئيسية";
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_attend)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddVip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_AddService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddVip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_attend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_AddCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
