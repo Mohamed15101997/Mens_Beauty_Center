@@ -97,6 +97,8 @@ namespace Mens_Beauty_Center
         private void ExpenceBtn_Click(object sender, EventArgs e)
         {
             string NationID = ExpenceCB.SelectedValue.ToString();
+            if(NationID == null)
+                MessageBox.Show("يجب عليك اختيار موظف اولا", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             int attendanceID = context.Attendances.Where(attend => (attend.NationalID == NationID) && (DbFunctions.TruncateTime(attend.ArrivalTime) == currentDate)).Select(attend => attend.AttendanceID).FirstOrDefault();
             decimal fixedSalary = context.Employees.Where(emp => emp.NationalID == NationID).Select(emp => emp.FixedSalary).FirstOrDefault();
             var currentExpenceMoney = context.Attendances.Where(attend => attend.AttendanceID == attendanceID).Select(attend => attend.ExpenseMoney).FirstOrDefault();
