@@ -78,11 +78,7 @@ namespace Mens_Beauty_Center
                     context.SP_AddEmployee(FNameTxt.Text, LNameTxt.Text, NationaIDTxt.Text, PhoneTxt.Text, decimal.Parse(FixedSalaryTxt.Text), (bool)(TypeCB.SelectedValue));
                     context.SaveChanges();
                     MessageBox.Show("تمت اضافة الموظف بنجاح", "اضافة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    FNameTxt.Text = "";
-                    LNameTxt.Text = "";
-                    NationaIDTxt.Text = "";
-                    PhoneTxt.Text = "";
-                    FixedSalaryTxt.Text = "";
+                    clearFileds();
                     FillDataGridViewEmp();
                 }
         }
@@ -104,11 +100,7 @@ namespace Mens_Beauty_Center
                 context.SP_UpdateEmployeeInfo(FNameTxt.Text, LNameTxt.Text, NationaIDTxt.Text, PhoneTxt.Text, decimal.Parse(FixedSalaryTxt.Text), (bool)(TypeCB.SelectedValue));
                 context.SaveChanges();
                 MessageBox.Show("تمت تعديل البيانات بنجاح", "تعديل", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                FNameTxt.Text = "";
-                LNameTxt.Text = "";
-                NationaIDTxt.Text = "";
-                PhoneTxt.Text = "";
-                FixedSalaryTxt.Text = "";
+                clearFileds();
                 FillDataGridViewEmp();
             }
         }
@@ -127,6 +119,19 @@ namespace Mens_Beauty_Center
         {
             var EmpDataSource = context.Employees.Select(emp => new { الاسم_الاول = emp.FirstName, اسم_العائلة = emp.LastName, رقم_البطاقة = emp.NationalID, التليفون = emp.PhoneNumber, اليومية = emp.FixedSalary, نوع_الوظيفة = emp.Type == true ? "كاشير" : "موظف" });
             EmployeeDGView.DataSource = EmpDataSource.ToList();
+        }
+        public void clearFileds() 
+        {
+            FNameTxt.Text = "";
+            LNameTxt.Text = "";
+            NationaIDTxt.Text = "";
+            PhoneTxt.Text = "";
+            FixedSalaryTxt.Text = "";
+        }
+
+        private void ClearFiledsBtn_Click(object sender, EventArgs e)
+        {
+            clearFileds();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.EmployeeDGView = new System.Windows.Forms.DataGridView();
             this.TypeCB = new System.Windows.Forms.ComboBox();
+            this.ClearFiledsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDGView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,7 +170,7 @@
             // 
             this.AddBtn.BackColor = System.Drawing.SystemColors.HotTrack;
             this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(925, 468);
+            this.AddBtn.Location = new System.Drawing.Point(983, 468);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(114, 63);
             this.AddBtn.TabIndex = 13;
@@ -181,7 +182,7 @@
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateBtn.Location = new System.Drawing.Point(746, 468);
+            this.UpdateBtn.Location = new System.Drawing.Point(845, 468);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(114, 63);
             this.UpdateBtn.TabIndex = 14;
@@ -218,11 +219,24 @@
             this.TypeCB.Size = new System.Drawing.Size(232, 38);
             this.TypeCB.TabIndex = 16;
             // 
+            // ClearFiledsBtn
+            // 
+            this.ClearFiledsBtn.BackColor = System.Drawing.Color.Gold;
+            this.ClearFiledsBtn.ForeColor = System.Drawing.Color.White;
+            this.ClearFiledsBtn.Location = new System.Drawing.Point(698, 468);
+            this.ClearFiledsBtn.Name = "ClearFiledsBtn";
+            this.ClearFiledsBtn.Size = new System.Drawing.Size(141, 63);
+            this.ClearFiledsBtn.TabIndex = 17;
+            this.ClearFiledsBtn.Text = "تفريغ الحقول";
+            this.ClearFiledsBtn.UseVisualStyleBackColor = false;
+            this.ClearFiledsBtn.Click += new System.EventHandler(this.ClearFiledsBtn_Click);
+            // 
             // EmployeeShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 543);
+            this.Controls.Add(this.ClearFiledsBtn);
             this.Controls.Add(this.TypeCB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EmployeeDGView);
@@ -241,6 +255,7 @@
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "EmployeeShow";
@@ -269,5 +284,6 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.DataGridView EmployeeDGView;
         private System.Windows.Forms.ComboBox TypeCB;
+        private System.Windows.Forms.Button ClearFiledsBtn;
     }
 }
