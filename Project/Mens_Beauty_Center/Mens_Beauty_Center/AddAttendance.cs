@@ -96,7 +96,7 @@ namespace Mens_Beauty_Center
 
         private void ExpenceBtn_Click(object sender, EventArgs e)
         {
-            string NationID = LeaveCB.SelectedValue.ToString();
+            string NationID = ExpenceCB.SelectedValue.ToString();
             int attendanceID = context.Attendances.Where(attend => (attend.NationalID == NationID) && (DbFunctions.TruncateTime(attend.ArrivalTime) == currentDate)).Select(attend => attend.AttendanceID).FirstOrDefault();
             decimal fixedSalary = context.Employees.Where(emp => emp.NationalID == NationID).Select(emp => emp.FixedSalary).FirstOrDefault();
             var currentExpenceMoney = context.Attendances.Where(attend => attend.AttendanceID == attendanceID).Select(attend => attend.ExpenseMoney).FirstOrDefault();
