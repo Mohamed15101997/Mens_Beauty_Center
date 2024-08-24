@@ -37,6 +37,7 @@ namespace Mens_Beauty_Center
             var query = context.SP_InsertArrivalTime(AttendCB.SelectedValue.ToString());
             context.SaveChanges();
             MessageBox.Show("تمت اضافة حضور الموظف بنجاح", "اضافة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            AttendCB.DataSource = null;
             FillLeavingComboBox();
             FillExpenceComboBox();
             FillArrivingComboBox();
@@ -50,6 +51,8 @@ namespace Mens_Beauty_Center
             var query = context.SP_UpdateLeavingTime(AttendanceID);
             context.SaveChanges();
             MessageBox.Show("تمت اضافة مغادرة الموظف بنجاح", "اضافة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            LeaveCB.DataSource = null;
+            ExpenceCB.DataSource = null;
             FillLeavingComboBox();
             FillExpenceComboBox();
             FillArrivingComboBox();
@@ -61,6 +64,9 @@ namespace Mens_Beauty_Center
             LeaveCB.DataSource = query.ToList();
             LeaveCB.DisplayMember = "Name";
             LeaveCB.ValueMember = "ID";
+            
+
+            
         }
         private void FillExpenceComboBox()
         {
