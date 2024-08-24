@@ -30,7 +30,7 @@ namespace Mens_Beauty_Center
             var employeesAttendedToday = (from emp in context.Employees
                                          join att in context.Attendances
                                          on emp.NationalID equals att.NationalID
-                                         where DbFunctions.TruncateTime(att.ArrivalTime) >= DbFunctions.TruncateTime(DateTime.Now) 
+                                         where DbFunctions.TruncateTime(att.ArrivalTime) >= DbFunctions.TruncateTime(DateTime.Now) && emp.Type == false
                                          //&& DbFunctions.TruncateTime(att.DepartureTime) <= DbFunctions.TruncateTime(DateTime.Now)
                                          select new { emp.NationalID, emp.FirstName, emp.LastName}).ToList();
             if (employeesAttendedToday.Count() > 0)
@@ -38,7 +38,7 @@ namespace Mens_Beauty_Center
                 foreach (var item in employeesAttendedToday)
                 {
                     items.Add(new { ID = item.NationalID, Name = item.FirstName + ' ' + item.LastName });
-                    MessageBox.Show(item.NationalID.ToString() + " " + item.FirstName + ' ' + item.LastName);
+                    //MessageBox.Show(item.NationalID.ToString() + " " + item.FirstName + ' ' + item.LastName);
                 }
                 comboBoxEmployees.DataSource = items;
                 comboBoxEmployees.DisplayMember = "Name";

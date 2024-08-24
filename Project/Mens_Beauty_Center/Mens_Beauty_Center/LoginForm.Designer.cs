@@ -36,6 +36,8 @@ namespace Mens_Beauty_Center
             this.label2 = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,11 +99,22 @@ namespace Mens_Beauty_Center
             this.label3.TabIndex = 4;
             this.label3.Text = ":كلمه السر";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Mens_Beauty_Center.Properties.Resources.Hakeeeeem;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(405, 422);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LoginBtn);
@@ -114,6 +127,7 @@ namespace Mens_Beauty_Center
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +140,6 @@ namespace Mens_Beauty_Center
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label3;
+        private PictureBox pictureBox1;
     }
 }

@@ -65,7 +65,7 @@ namespace Mens_Beauty_Center
                     {
                         context.SP_InsertArrivalTime(employeeID);
                         var currentDate = DateTime.Now.Date;
-                        var NationalID = context.Employees.Where(emp => emp.NationalID == employeeID)
+                        var NationalID= context.Employees.Where(emp => emp.NationalID == employeeID)
                                                           .Select(emp => emp.NationalID)
                                                           .FirstOrDefault();
 
